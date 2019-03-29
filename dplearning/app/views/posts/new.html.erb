@@ -1,12 +1,6 @@
 <h2>Add New Post</h2>
-<%= form_for :post,url: posts_path do |f| %>
-<p>
-  <%= f.text_field :title,placeholder: 'enter title' %>
-</p>
-<p>
-  <%= f.text_area :body,placeholder: 'enter body text' %>
-</p>
-<p>
-  <%= f.submit %>
-</p>
-<%end%>
+<%= form_for :post, url: posts_create_path  do |f| %>
+  <p><%=f.label "投稿者" %><br><%= f.text_field :title, placeholder: 'ハンドルネーム' %></p>
+  <p><%=f.label "画像をアップロード" %><br><%= f.file_field :image %></p>
+  <p><%= f.submit value: '投稿' %></p>
+<% end %>

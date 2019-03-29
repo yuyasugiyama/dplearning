@@ -14,13 +14,13 @@ class PostsController < ApplicationController
     #render plain: params[:post].inspect
     #save
     @post = Post.new(post_params)
-    @post.save
+    @post.save!
     #redirect
-    redirect_to posts_path
+    redirect_to action: 'show'
   end
 
   private
     def post_params
-       params.require(:post).permit(:title,:body)
+       params.require(:post).permit(:title,:image)
     end
 end
